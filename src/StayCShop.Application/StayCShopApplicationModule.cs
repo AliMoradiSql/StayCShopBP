@@ -13,6 +13,8 @@ namespace StayCShop
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<StayCShopAuthorizationProvider>();
+
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(CustomDtoMapper.CreateMappings);
         }
 
         public override void Initialize()

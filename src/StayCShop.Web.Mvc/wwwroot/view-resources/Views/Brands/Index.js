@@ -1,63 +1,65 @@
 ﻿(function ($) {
 
-    console.log("Test");
+    console.log("Testddfhhjhbjbkbkjbkjnn njhkljlkjl nkjkljlkjl 44444445667dfdf68666");
+    l = abp.localization.getSource('StayCShop');
     var _mService = abp.services.app.brand;
-    var _$dTable = $('#DataTable');
+    var _$table = $('#DataTable');
 
+    //_$modal = $('#UserCreateModal');
+    //_$form = _$modal.find('form');
 
-    var dataTable = _$dTable.DataTable({
+    var _$usersTable = _$table.DataTable({
         paging: true,
         serverSide: true,
-        processing: true,
         listAction: {
             ajaxFunction: _mService.getAll,
             inputFilter: function () {
-                return {
-                    filter: $('#TableFilter').val(),
-                };
+                return $('#TableFilter').serializeFormToObject(true);
+            }
+        },
+        buttons: [
+            {
+                name: 'refresh',
+                text: '<i class="fas fa-redo-alt"></i>',
+                action: () => _$usersTable.draw(false)
+            }
+        ],
+        responsive: {
+            details: {
+                type: 'column'
             }
         },
         columnDefs: [
             {
-                className: 'control responsive',
-                orderable: false,
-                render: function () {
-                    return '';
-                },
-                targets: 0
+                targets: 0,
+                className: 'control',
+                defaultContent: '',
+            },
+            {
+                targets: 2,
+                data: 'brandName',
+                sortable: false,
             },
             {
                 targets: 1,
                 data: null,
-                orderable: false,
+                sortable: false,
                 autoWidth: false,
                 defaultContent: '',
-                rowAction: {
-                    text: '<i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span>',
-                    items: [{
-                        text: app.localize('Edit'),
-
-                        action: function (data) {
-                            _createOrEditModal.open({ id: data.record.id });
-                        }
-                    },
-                    {
-                        text: app.localize('Delete'),
-                        action: function (data) {
-                            DeleteObj(data.record);
-                        }
-                    },
-                    ]
+                render: (data, type, row, meta) => {
+                    return [
+                        `   <button type="button" class="btn btn-sm bg-secondary edit-user" data-user-id="${row.id}" data-toggle="modal" data-target="#UserEditModal">`,
+                        `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
+                        '   </button>',
+                        `   <button type="button" class="btn btn-sm bg-danger delete-user" data-user-id="${row.id}" data-user-name="${row.name}">`,
+                        `       <i class="fas fa-trash"></i> ${l('Delete')}`,
+                        '   </button>'
+                    ].join('');
                 }
-            },
-            {
-                targets: 2,
-                data: "brandName",
-            },
-
-        ],
-        "drawCallback": function (settings) { }
+            }
+        ]
     });
+
 
     //var _createOrEditModal = new app.ModalManager({
     //    viewUrl: abp.appPath + 'Brands/CreateOrEditBrandModal',
@@ -95,21 +97,21 @@
 
     //function DeleteObj(obj) {
     //    abp.message.confirm(
-    //        app.localize('DeleteWarningMessage', obj.name),
-    //        app.localize('AreYouSure'),
+    //        l('DeleteWarningMessage', obj.name),
+    //        l('AreYouSure'),
     //        function (isConfirmed) {
     //            if (isConfirmed) {
     //                _mService.delete({
     //                    id: obj.id
     //                }).done(function () {
     //                    getData();
-    //                    abp.notify.success(app.localize('SuccessfullyDeleted'));
+    //                    abp.notify.success(l('SuccessfullyDeleted'));
     //                });
     //            }
     //        }
     //    );
     //}
 
-});
+})(jQuery);
 
 

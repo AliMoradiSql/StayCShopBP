@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using StayCShop.Brands.Dto;
+using StayCShop.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,10 @@ namespace StayCShop
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            //Address
-            //configuration.CreateMap<Address, AddressListDto>();
-            //configuration.CreateMap<Address, GetForEditAddressDto>();
-            //configuration.CreateMap<CreateOrUpdateAddressDto, Address>();
+            //Brand
+            configuration.CreateMap<Brand, BrandListDto>();
+            configuration.CreateMap<Brand, GetForEditBrandDto>();
+            configuration.CreateMap<CreateOrUpdateBrandDto, Brand>();
         }
     }
 }
