@@ -77,7 +77,8 @@
       ]
     },
     {
-      "library": "bootstrap@4.6.0",
+
+      "library": "bootstrap@5.2.3",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/bootstrap",
       "files": [
@@ -102,7 +103,7 @@
       ]
     },
     {
-      "library": "datatables.net@1.10.24",
+      "library": "datatables.net@1.10.25",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
@@ -111,18 +112,18 @@
       ]
     },
     {
-      "library": "datatables.net-bs4@1.10.24",
+      "library": "datatables.net-bs5@1.10.25",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
-        "css/dataTables.bootstrap4.css",
-        "css/dataTables.bootstrap4.min.css",
-        "js/dataTables.bootstrap4.js",
-        "js/dataTables.bootstrap4.min.js"
+        "css/dataTables.bootstrap5.css",
+        "css/dataTables.bootstrap5.min.css",
+        "js/dataTables.bootstrap5.js",
+        "js/dataTables.bootstrap5.min.js"
       ]
     },
     {
-      "library": "datatables.net-responsive@2.2.7",
+      "library": "datatables.net-responsive@2.4.0",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
@@ -131,18 +132,18 @@
       ]
     },
     {
-      "library": "datatables.net-responsive-bs4@2.2.7",
+      "library": "datatables.net-responsive-bs5@2.4.0",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
-        "css/responsive.bootstrap4.css",
-        "css/responsive.bootstrap4.min.css",
-        "js/responsive.bootstrap4.js",
-        "js/responsive.bootstrap4.min.js"
+        "css/responsive.bootstrap5.css",
+        "css/responsive.bootstrap5.min.css",
+        "js/responsive.bootstrap5.js",
+        "js/responsive.bootstrap5.min.js"
       ]
     },
     {
-      "library": "datatables.net-buttons@1.7.0",
+      "library": "datatables.net-buttons@2.3.4",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
@@ -151,14 +152,14 @@
       ]
     },
     {
-      "library": "datatables.net-buttons-bs4@1.7.0",
+      "library": "datatables.net-buttons-bs5@2.3.4",
       "provider": "jsdelivr",
       "destination": "wwwroot/libs/datatables",
       "files": [
-        "css/buttons.bootstrap4.css",
-        "css/buttons.bootstrap4.min.css",
-        "js/buttons.bootstrap4.js",
-        "js/buttons.bootstrap4.min.js"
+        "css/buttons.bootstrap5.css",
+        "css/buttons.bootstrap5.min.css",
+        "js/buttons.bootstrap5.js",
+        "js/buttons.bootstrap5.min.js"
       ]
     },
     {
