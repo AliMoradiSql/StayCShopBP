@@ -255,3 +255,4 @@ src/StayCShop.Web.Mvc/secrets.json
 src/StayCShop.Web.Host/secrets.json
 src/StayCShop.Migrator/secrets.json
 src/StayCShop.Web.Host/App_Data/Logs/Logs.txt
+src/StayCShop.Web.Mvc/App_Data/Logs/Logs.txt
