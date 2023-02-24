@@ -46,8 +46,9 @@ namespace StayCShop.Brands
         public async Task CreateOrUpdate(CreateOrUpdateBrandDto input)
         {
             if (input.Id.HasValue)
-                await _brandRepository.UpdateAsync(ObjectMapper.Map<Brand>(input));
-            await _brandRepository.InsertAsync(ObjectMapper.Map<Brand>(input));
+                 await _brandRepository.UpdateAsync(ObjectMapper.Map<Brand>(input));
+           else
+                await _brandRepository.InsertAsync(ObjectMapper.Map<Brand>(input));
         }
 
         public async Task Delete(EntityDto input)

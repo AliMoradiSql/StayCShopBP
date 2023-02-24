@@ -106,8 +106,7 @@
   {
     "outputFileName": "wwwroot/view-resources/Views/Brands/Index.min.js",
     "inputFiles": [
-      "wwwroot/view-resources/Views/Brands/Index.js",
-      "wwwroot/view-resources/Views/Brands/_CreateOrEditBrandModal.js"
+      "wwwroot/view-resources/Views/Brands/Index.js"
 
     ]
   },
