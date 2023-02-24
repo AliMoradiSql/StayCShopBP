@@ -1,117 +1,165 @@
-﻿(function ($) {
+﻿//(function ($) {
 
-    console.log("Testddfhhjhbjbkbkjbkjnn njhkljlkjl nkjkljlkjl 44444445667dfdf68666");
-    l = abp.localization.getSource('StayCShop');
-    var _mService = abp.services.app.brand;
-    var _$table = $('#DataTable');
+//    console.log("Testddfhhjhbjbkbkjbkjnn njhkljlkjl nkjkljlkjl 44444445667dfdf68666");
+//    l = abp.localization.getSource('StayCShop');
+//    var _mService = abp.services.app.brand;
+//    var _$table = $('#DataTable');
 
-    //_$modal = $('#UserCreateModal');
-    //_$form = _$modal.find('form');
+//    _$modal = $('#CreateOrEditModal');
+//    _$form = _$modal.find('form');
 
-    var _$usersTable = _$table.DataTable({
-        paging: true,
-        serverSide: true,
-        listAction: {
-            ajaxFunction: _mService.getAll,
-            inputFilter: function () {
-                return $('#TableFilter').serializeFormToObject(true);
-            }
-        },
-        buttons: [
-            {
-                name: 'refresh',
-                text: '<i class="fas fa-redo-alt"></i>',
-                action: () => _$usersTable.draw(false)
-            }
-        ],
-        responsive: {
-            details: {
-                type: 'column'
-            }
-        },
-        columnDefs: [
-            {
-                targets: 0,
-                className: 'control',
-                defaultContent: '',
-            },
-            {
-                targets: 2,
-                data: 'brandName',
-                sortable: false,
-            },
-            {
-                targets: 1,
-                data: null,
-                sortable: false,
-                autoWidth: false,
-                defaultContent: '',
-                render: (data, type, row, meta) => {
-                    return [
-                        `   <button type="button" class="btn btn-sm bg-primary edit-user" data-user-id="${row.id}" data-toggle="modal" data-target="#UserEditModal">`,
-                        `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
-                        '   </button>',
-                        `   <button type="button" class="btn btn-sm bg-danger delete-user" data-user-id="${row.id}" data-user-name="${row.name}">`,
-                        `       <i class="fas fa-trash"></i> ${l('Delete')}`,
-                        '   </button>'
-                    ].join('');
-                }
-            }
-        ]
-    });
+//    var dataTable = _$table.DataTable({
+//        paging: true,
+//        serverSide: true,
+//        listAction: {
+//            ajaxFunction: _mService.getAll,
+//            inputFilter: function () {
+//                return $('#TableFilter').serializeFormToObject(true);
+//            }
+//        },
+//        buttons: [
+//            {
+//                name: 'refresh',
+//                text: '<i class="fas fa-redo-alt"></i>',
+//                action: () => dataTable.draw(false)
+//            }
+//        ],
+//        responsive: {
+//            details: {
+//                type: 'column'
+//            }
+//        },
+//        columnDefs: [
+//            {
+//                targets: 0,
+//                className: 'control',
+//                defaultContent: '',
+//            },
+//            {
+//                targets: 2,
+//                data: 'brandName',
+//                sortable: false,
+//            },
+//            {
+//                targets: 1,
+//                data: null,
+//                sortable: false,
+//                autoWidth: false,
+//                defaultContent: '',
+//                render: (data, type, row, meta) => {
+//                    return [
+//                        `   <button type="button" class="btn btn-sm bg-primary edit-info" data-info-id="${row.id}" data-toggle="modal" data-target="#CreateOrEditModal">`,
+//                        `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
+//                        '   </button>',
+//                        `   <button type="button" class="btn btn-sm bg-danger delete-info" data-info-id="${row.id}" data-info-name="${row.brandName}">`,
+//                        `       <i class="fas fa-trash"></i> ${l('Delete')}`,
+//                        '   </button>'
+//                    ].join('');
+//                }
+//            }
+//        ]
+//    });
 
+//    //_$form.validate({
+//    //    rules: {
+//    //        Password: "required",
+//    //        ConfirmPassword: {
+//    //            equalTo: "#Password"
+//    //        }
+//    //    }
+//    //});
 
-    //var _createOrEditModal = new app.ModalManager({
-    //    viewUrl: abp.appPath + 'Brands/CreateOrEditBrandModal',
-    //    scriptUrl: abp.appPath + 'view-resources/Views/Brands/_CreateOrEditBrandModal.js',
-    //    modalClass: 'CreateOrEditBrandModal',
-    //});
+//    _$form.find('.save-button').on('click', (e) => {
+//        e.preventDefault();
 
+//        if (!_$form.valid()) {
+//            return;
+//        }
 
-    //function getData() {
-    //    dataTable.ajax.reload();
-    //}
+//        var info = _$form.serializeFormToObject();
 
-    //$('#TableFilter').on('keydown', function (e) {
-    //    if (e.keyCode !== 13) {
-    //        return;
-    //    }
+//        abp.ui.setBusy(_$modal);
+//        _mService.createOrUpdate(info).done(function () {
+//            _$modal.modal('hide');
+//            _$form[0].reset();
+//            abp.notify.info(l('SavedSuccessfully'));
+//            getData();
+//        }).always(function () {
+//            abp.ui.clearBusy(_$modal);
+//        });
+//    });
 
-    //    e.preventDefault();
-    //    getData();
-    //});
+//    $(document).on('click', '.delete-info', function () {
+//        var objId = $(this).attr("data-info-id");
+//        var objName = $(this).attr('data-info-name');
 
-    //$('#CreateNewBtn').click(function (e) {
-    //    e.preventDefault();
-    //    _createOrEditModal.open({});
-    //});
+//        deleteObj(objId, objName);
+//    });
 
-    //$('#GetButton').click(function (e) {
-    //    e.preventDefault();
-    //    getData();
-    //});
+//    function deleteObj(objId, objName) {
+//        abp.message.confirm(
+//            abp.utils.formatString(
+//                l('AreYouSureWantToDelete'),
+//                objName),
+//            null,
+//            (isConfirmed) => {
+//                if (isConfirmed) {
+//                    _mService.delete({
+//                        id: objId
+//                    }).done(() => {
+//                        abp.notify.info(l('SuccessfullyDeleted'));
+//                        getData();
+//                    });
+//                }
+//            }
+//        );
+//    }
 
-    //abp.event.on('app.createOrEditBrandModalSaved', function () {
-    //    dataTable.ajax.reload();
-    //});
+//    $(document).on('click', '.edit-info', function (e) {
+//        var objId = $(this).attr("data-info-id");
 
-    //function DeleteObj(obj) {
-    //    abp.message.confirm(
-    //        l('DeleteWarningMessage', obj.name),
-    //        l('AreYouSure'),
-    //        function (isConfirmed) {
-    //            if (isConfirmed) {
-    //                _mService.delete({
-    //                    id: obj.id
-    //                }).done(function () {
-    //                    getData();
-    //                    abp.notify.success(l('SuccessfullyDeleted'));
-    //                });
-    //            }
-    //        }
-    //    );
-    //}
+//        e.preventDefault();
+//        abp.ajax({
+//            url: abp.appPath + 'Brands/CreateOrEditBrandModal?Id=' + objId,
+//            type: 'POST',
+//            dataType: 'html',
+//            success: function (content) {
+//                $('#CreateOrEditModal div.modal-content').html(content);
+//            },
+//            error: function (e) {
+//            }
+//        });
+//    });
 
-})(jQuery);
+//    $(document).on('click', 'a[data-target="#CreateOrEditModal"]', (e) => {
+//        console.log("Clicked 99797979798");
+//        $('.nav-tabs a[href="#info-details"]').tab('show')
+//    });
+
+//    abp.event.on('Brand.edited', (data) => {
+//        getData();
+//    });
+
+//    _$modal.on('shown.bs.modal', () => {
+//        _$modal.find('input:not([type=hidden]):first').focus();
+//    }).on('hidden.bs.modal', () => {
+//        _$form.clearForm();
+//    });
+
+//    $('.btn-search').on('click', (e) => {
+//        getData();
+//    });
+
+//    $('.txt-search').on('keypress', (e) => {
+//        if (e.which == 13) {
+//            getData();
+//            return false;
+//        }
+//    });
+
+//    function getData() {
+//        dataTable.ajax.reload();
+//    }
+//})(jQuery);
 
 
