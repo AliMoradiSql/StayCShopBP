@@ -18,6 +18,7 @@ namespace StayCShop.EntityFrameworkCore
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<ProductDiscount> ProductDiscounts { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
 
         public StayCShopDbContext(DbContextOptions<StayCShopDbContext> options)
             : base(options)

@@ -17,6 +17,7 @@ namespace StayCShop.Entities
         public string Size { get; set; }
         public string Material { get; set; }
         public short Quantity { get; set; }
+        public byte[]? CoverImage { get; set; }
         public int? BrandId { get; set; }
 
         public virtual Brand Brand { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StayCShop.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using StayCShop.EntityFrameworkCore;
 namespace StayCShop.Migrations
 {
     [DbContext(typeof(StayCShopDbContext))]
-    partial class StayCShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230225064118_AddImageTable")]
+    partial class AddImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
