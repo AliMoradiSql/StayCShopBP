@@ -18,4 +18,3 @@ namespace StayCShop.ProductCategories.Dto
         public ProductListDto Product { get; set; }
     }
 }
-}

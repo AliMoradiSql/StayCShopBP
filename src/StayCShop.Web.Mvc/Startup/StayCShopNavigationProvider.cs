@@ -13,7 +13,7 @@ namespace StayCShop.Web.Startup
         public override void SetNavigation(INavigationProviderContext context)
         {
             context.Manager.MainMenu
-              
+
                 .AddItem(
                     new MenuItemDefinition(
                         PageNames.Home,
@@ -22,7 +22,7 @@ namespace StayCShop.Web.Startup
                         icon: "fas fa-home",
                         requiresAuthentication: true
                     )
-              
+
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
@@ -37,6 +37,14 @@ namespace StayCShop.Web.Startup
                         L("Roles"),
                         url: "Roles",
                         icon: "fas fa-theater-masks",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Brands,
+                        L("Brands"),
+                        url: "Brands",
+                        icon: "fas fa-handshake",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
                     )
                 );

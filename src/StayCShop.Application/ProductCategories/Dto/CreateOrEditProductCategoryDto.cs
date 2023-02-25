@@ -16,4 +16,3 @@ namespace StayCShop.ProductCategories.Dto
 
     }
 }
-}
