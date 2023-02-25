@@ -45,7 +45,15 @@ namespace StayCShop.Web.Startup
                         L("Brands"),
                         url: "Brands",
                         icon: "fas fa-handshake",
-                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Roles)
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Products,
+                        L("Products"),
+                        url: "Products",
+                        icon: "fas fa-tshirt",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
                     )
                 );
         }

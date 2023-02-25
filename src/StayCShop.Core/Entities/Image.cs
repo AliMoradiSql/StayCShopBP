@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace StayCShop.Entities
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
 
-
+        public static Image FromStream(Stream stream)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

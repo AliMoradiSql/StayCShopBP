@@ -20,7 +20,7 @@ namespace StayCShop.Products.Dto
         public string Size { get; set; }
         public string Material { get; set; }
         public short Quantity { get; set; }
-        public byte[]? CoverImage { get; set; }
+        public byte[] CoverImage { get; set; }
         public int? BrandId { get; set; }
 
         public BrandListDto Brand { get; set; }

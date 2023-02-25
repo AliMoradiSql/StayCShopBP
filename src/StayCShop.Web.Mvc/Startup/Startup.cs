@@ -46,6 +46,12 @@ namespace StayCShop.Web.Startup
                         options.Filters.Add(new AbpAutoValidateAntiforgeryTokenAttribute());
                     }
                 )
+                .AddJsonOptions(option=>
+                {
+                    option.JsonSerializerOptions.PropertyNameCaseInsensitive= true;
+                    option.JsonSerializerOptions.PropertyNamingPolicy= null;
+                }
+                )
                 .AddRazorRuntimeCompilation()
                 .AddNewtonsoftJson(options =>
                 {

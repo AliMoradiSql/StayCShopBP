@@ -40,12 +40,12 @@
                 defaultContent: '',
             },
             {
-                targets: 2,
+                targets: 1,
                 data: 'brandName',
                 sortable: false,
             },
             {
-                targets: 1,
+                targets: 2,
                 data: null,
                 sortable: false,
                 autoWidth: false,

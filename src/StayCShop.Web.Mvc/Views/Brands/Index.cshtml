@@ -31,26 +31,28 @@
 </section>
 <section class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <div class="card card-custom gutter-b">
-        <div class="card-body">
-            <div class="form">
-                <div class="row">
-                    <div class="input-group col-md-6">
-                        <div class="input-group-prepend">
-                            <button type="button" class="btn bg-blue btn-search">
-                                <span class="fas fa-search" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <input id="TableFilter" type="text" name="Keyword" class="form-control txt-search" />
+        <div class="card-header">
+        <div class="form">
+            <div class="row">
+                <div class="input-group col-md-6">
+                    <div class="input-group-prepend">
+                        <button type="button" class="btn bg-blue btn-search">
+                            <span class="fas fa-search" aria-hidden="true"></span>
+                        </button>
                     </div>
+                    <input id="TableFilter" type="text" name="Keyword" class="form-control txt-search" />
                 </div>
             </div>
-            <div class="align-items-center">
-                <table id="DataTable" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer">
+        </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="DataTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>@L("Actions")</th>
                             <th>@L("Title")</th>
+                            <th style="width: 150px">@L("Actions")</th>
                         </tr>
                     </thead>
                 </table>
