@@ -43,7 +43,7 @@ namespace StayCShop.Brands
             return new PagedResultDto<BrandListDto>(count, mappedData);
         }
 
-        public async Task CreateOrUpdate(CreateOrUpdateBrandDto input)
+        public async Task CreateOrUpdate(CreateOrEditBrandDto input)
         {
             if (input.Id.HasValue)
                  await _brandRepository.UpdateAsync(ObjectMapper.Map<Brand>(input));

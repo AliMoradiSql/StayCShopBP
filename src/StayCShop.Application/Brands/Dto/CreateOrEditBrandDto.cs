@@ -2,7 +2,7 @@
 
 namespace StayCShop.Brands.Dto
 {
-    public class CreateOrUpdateBrandDto : NullableIdDto
+    public class CreateOrEditBrandDto : NullableIdDto
     {
         public string BrandName { get; set; }
     }

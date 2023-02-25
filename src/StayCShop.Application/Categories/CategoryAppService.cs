@@ -43,7 +43,7 @@ namespace StayCShop.Categories
             return new PagedResultDto<CategoryListDto>(count, mappedData);
         }
 
-        public async Task CreateOrUpdate(CreateOrUpdateCategoryDto input)
+        public async Task CreateOrUpdate(CreateOrEditCategoryDto input)
         {
             if (input.Id.HasValue)
                 await _categoryRepository.UpdateAsync(ObjectMapper.Map<Category>(input));

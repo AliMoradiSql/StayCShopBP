@@ -2,7 +2,7 @@
 
 namespace StayCShop.Categories.Dto
 {
-    public class CreateOrUpdateCategoryDto : NullableIdDto
+    public class CreateOrEditCategoryDto : NullableIdDto
     {
         public string CategoryName { get; set; }
     }

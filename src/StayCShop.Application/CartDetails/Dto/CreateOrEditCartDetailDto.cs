@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StayCShop.CartDetails.Dto
 {
-    public class CreateOrUpdateCartDetailDto : NullableIdDto
+    public class CreateOrEditCartDetailDto : NullableIdDto
     {
         public int ProductId { get; set; }
         public int CartId { get; set; }

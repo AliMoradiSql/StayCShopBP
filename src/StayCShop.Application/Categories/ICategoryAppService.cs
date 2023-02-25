@@ -13,6 +13,6 @@ namespace StayCShop.Categories
         Task<PagedResultDto<CategoryListDto>> GetAll(GetAllCategoryInput input);
         Task Delete(EntityDto input);
         Task<GetForEditCategoryDto> GetForEdit(NullableIdDto input);
-        Task CreateOrUpdate(CreateOrUpdateCategoryDto input);
+        Task CreateOrUpdate(CreateOrEditCategoryDto input);
     }
 }

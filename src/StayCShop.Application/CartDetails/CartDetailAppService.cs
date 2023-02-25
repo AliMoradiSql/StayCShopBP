@@ -40,7 +40,7 @@ namespace StayCShop.CartDetails
             return new PagedResultDto<CartDetailListDto>(count, mappedData);
         }
 
-        public async Task CreateOrUpdate(CreateOrUpdateCartDetailDto input)
+        public async Task CreateOrUpdate(CreateOrEditCartDetailDto input)
         {
             if (input.Id.HasValue)
                 await _cartDetailRepository.UpdateAsync(ObjectMapper.Map<CartDetail>(input));

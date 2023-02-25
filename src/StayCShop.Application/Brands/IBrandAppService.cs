@@ -13,6 +13,6 @@ namespace StayCShop.Brands
         Task<PagedResultDto<BrandListDto>> GetAll(GetAllBrandInput input);
         Task Delete(EntityDto input);
         Task<GetForEditBrandDto> GetForEdit(NullableIdDto input);
-        Task CreateOrUpdate(CreateOrUpdateBrandDto input);
+        Task CreateOrUpdate(CreateOrEditBrandDto input);
     }
 }

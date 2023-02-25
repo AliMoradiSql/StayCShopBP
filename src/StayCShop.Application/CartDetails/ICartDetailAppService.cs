@@ -13,6 +13,6 @@ namespace StayCShop.CartDetails
         Task<PagedResultDto<CartDetailListDto>> GetAll(GetAllCartDetailInput input);
         Task Delete(EntityDto input);
         Task<GetForEditCartDetailDto> GetForEdit(NullableIdDto input);
-        Task CreateOrUpdate(CreateOrUpdateCartDetailDto input);
+        Task CreateOrUpdate(CreateOrEditCartDetailDto input);
     }
 }

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-#nullable disable
 
 namespace StayCShop.Entities
 {
@@ -24,6 +23,7 @@ namespace StayCShop.Entities
         public virtual ICollection<CartDetail> CartDetails { get; set; } = new HashSet<CartDetail>();
         public virtual ICollection<ProductCategory> ProductCategories { get; set; } = new HashSet<ProductCategory>();
         public virtual ICollection<ProductDiscount> ProductDiscounts { get; set; } = new HashSet<ProductDiscount>();
+        public virtual ICollection<Image> Images { get; set; } = new HashSet<Image>();
 
 
     }
