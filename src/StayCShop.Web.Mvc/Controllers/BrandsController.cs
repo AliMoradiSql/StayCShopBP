@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using StayCShop.Brands;
 using StayCShop.Brands.Dto;
+using StayCShop.Categories;
 using StayCShop.Controllers;
 using StayCShop.Web.Models.Users;
 using System.Threading.Tasks;

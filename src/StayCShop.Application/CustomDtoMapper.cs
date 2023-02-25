@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using StayCShop.Brands.Dto;
+using StayCShop.CartDetails.Dto;
+using StayCShop.Categories.Dto;
 using StayCShop.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,17 @@ namespace StayCShop
             //Brand
             configuration.CreateMap<Brand, BrandListDto>();
             configuration.CreateMap<Brand, GetForEditBrandDto>();
-            configuration.CreateMap<CreateOrUpdateBrandDto, Brand>();
+            configuration.CreateMap<CreateOrUpdateBrandDto, Brand>(); 
+            
+            //Category
+            configuration.CreateMap<Category, CategoryListDto>();
+            configuration.CreateMap<Category, GetForEditCategoryDto>();
+            configuration.CreateMap<CreateOrUpdateCategoryDto, Category>();
+
+            //CartDetail
+            configuration.CreateMap<CartDetail, CartDetailListDto>();
+            configuration.CreateMap<CartDetail, GetForEditCartDetailDto>();
+            configuration.CreateMap<CreateOrUpdateCartDetailDto, CartDetail>();
         }
     }
 }
