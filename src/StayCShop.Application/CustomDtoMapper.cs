@@ -21,7 +21,8 @@ namespace StayCShop
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
             //Product
-            configuration.CreateMap<Product, ProductListDto>();
+            configuration.CreateMap<Product, ProductListDto>()
+                .ForMember(x=>x.BrandName,option=>option.MapFrom(x=>x.Brand.BrandName));
             configuration.CreateMap<Product, GetForEditProductDto>();
             configuration.CreateMap<CreateOrEditProductDto, Product>();  
             

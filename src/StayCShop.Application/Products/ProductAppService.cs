@@ -31,7 +31,7 @@ namespace StayCShop.Products
 
         public async Task<PagedResultDto<ProductListDto>> GetAll(GetAllProductInput input)
         {
-            var query = _productRepository.GetAllIncluding(x => x.Images)
+            var query = _productRepository.GetAllIncluding(x => x.Brand)
                 .WhereIf(!string.IsNullOrEmpty(input.Filter), x => x.Name.Contains(input.Filter));
 
             var count = await query.CountAsync();

@@ -23,6 +23,5 @@ namespace StayCShop.Products.Dto
         public byte[] CoverImage { get; set; }
         public int? BrandId { get; set; }
 
-        public BrandListDto Brand { get; set; }
     }
 }

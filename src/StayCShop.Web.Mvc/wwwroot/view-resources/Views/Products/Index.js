@@ -79,6 +79,11 @@
             },
             {
                 targets: 8,
+                data: 'brandName',
+                sortable: false,
+            },
+            {
+                targets: 9,
                 data: null,
                 sortable: false,
                 autoWidth: false,
@@ -219,9 +224,9 @@
 
     $('#BrandId').select2({
         placeholder: l('SelectYourBrandName'),
-        theme: 'bootstrap5',
-        selectionCssClass: 'form-select',
         allowClear: true,
+/*        theme: 'default',*/
+        selectionCssClass: 'form-select',
         dropdownParent: _$modal,
         ajax: {
             url: abp.appPath + "api/services/app/Brand/GetAll",
@@ -242,7 +247,6 @@
 
                 return {
                     results: $.map(data.result.items, function (item) {
-                        console.log(item);
                         return {                            
                             text: item.brandName,
                             id: item.id
@@ -262,20 +266,6 @@
 /*        language: abp.localization.currentCulture.name,*/
         width: '100%'
     });
-    //    .val(defaultVehicleId);
-    //if (defaultVehicleId != null) {
-    //    var $option = $('<option selected>Loading...</option>').val(defaultVehicleId);
-    //    $('#VehicleId').append($option);
-    //    $.ajax({
-    //        type: 'GET',
-    //        url: abp.appPath + "api/services/app/Vehicle/GetForEdit?Id=" + defaultVehicleId,
-    //        dataType: 'json'
-    //    }).then(function (data) {
-    //        var $option = $('<option selected>' + data.result.name + '</option>').val(data.result.id);
-    //        $('#VehicleId').append($option);
-    //    });
-    //}
-
 })(jQuery);
 
 

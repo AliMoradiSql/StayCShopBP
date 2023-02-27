@@ -7,8 +7,6 @@
     string imgSrc;
 }
 
-
-
 @{
     Layout = null;
 }
@@ -67,12 +65,13 @@
                                         <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
                                     </div>
                                 </div>
-                                @*<div class="form-group row required">
-                                    <label class="col-md-3 col-form-label">@L("Brand")</label>
+                                <div class=" form-group row">
+                                    <label class="form-label col-md-3">@L("Brand")</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="BrandId" class="form-control select2" name="BrandId">
+                                        <select id="BrandId" class="select2-container" name="BrandId" style="height:20px">
+                                        </select>
                                     </div>
-                                </div>*@
+                                </div>
                             </div>
                         </div>
 
@@ -92,6 +91,7 @@ else
     @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit")))
     <form name="InformationForm" role="form" class="form-horizontal">
         <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" id="DefaultBrandId" value="@Model.BrandId" />
         <div class="modal-body">
 
             <div class="row">
@@ -139,6 +139,13 @@ else
                         <label class="col-md-3 col-form-label">@L("Quantity")</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
+                        </div>
+                    </div>
+                    <div class=" form-group row">
+                        <label class="form-label col-md-3">@L("Brand")</label>
+                        <div class="col-md-9">
+                            <select id="EditBrandId" class="select2-container" name="BrandId" style="height:20px">
+                            </select>
                         </div>
                     </div>
                 </div>
