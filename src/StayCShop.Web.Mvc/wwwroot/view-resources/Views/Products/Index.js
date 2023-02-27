@@ -10,6 +10,7 @@
     _$modalEdit = $('#EditModal');
     _$formEdit = _$modal.find('form');
 
+    var rowCount = 1;
     var dataTable = _$table.DataTable({
         paging: true,
         serverSide: true,
@@ -41,36 +42,43 @@
             },
             {
                 targets: 1,
-                data: 'name',
+                render: function () {
+                    return rowCount++;
+                },
                 sortable: false,
             },
             {
                 targets: 2,
-                data: 'price',
+                data: 'name',
                 sortable: false,
             },
             {
                 targets: 3,
-                data: 'color',
+                data: 'price',
                 sortable: false,
             },
             {
                 targets: 4,
-                data: 'size',
+                data: 'color',
                 sortable: false,
             },
             {
                 targets: 5,
-                data: 'material',
+                data: 'size',
                 sortable: false,
             },
             {
                 targets: 6,
-                data: 'quantity',
+                data: 'material',
                 sortable: false,
             },
             {
                 targets: 7,
+                data: 'quantity',
+                sortable: false,
+            },
+            {
+                targets: 8,
                 data: null,
                 sortable: false,
                 autoWidth: false,
@@ -121,7 +129,6 @@
                 contentType: false,
                 data: fd
             }).done(function (data) {
-                console.log(info);
                 info.CoverImage = data;
                 _mService.createOrUpdate(info).done(function () {
                     _$modalObj.modal('hide');
@@ -171,11 +178,9 @@
             type: 'Get',
             dataType: 'html',
             success: function (content) {
-                console.log(content);
                 $('#EditModal div.modal-content').html(content);
             },
             error: function (e) {
-                console.log(e);
             }
         });
     });
@@ -211,6 +216,66 @@
     function getData() {
         dataTable.ajax.reload();
     }
+
+    $('#BrandId').select2({
+        placeholder: l('SelectYourBrandName'),
+        theme: 'bootstrap5',
+        selectionCssClass: 'form-select',
+        allowClear: true,
+        dropdownParent: _$modal,
+        ajax: {
+            url: abp.appPath + "api/services/app/Brand/GetAll",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+
+                return {
+                    //searchTerm: params.term, // search term
+                    //page: params.page,
+                    filter: params.term, // search term
+                    skipCount: params.page,
+                    maxResultCount: 20
+                };
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+
+                return {
+                    results: $.map(data.result.items, function (item) {
+                        console.log(item);
+                        return {                            
+                            text: item.brandName,
+                            id: item.id
+                        }
+                    }),
+                    pagination: {
+                        more: (params.page * 10) <= data.result.totalCount
+                    }
+                };
+            },
+            cache: true
+        },
+        escapeMarkup: function (markup) {
+            return markup;
+        },
+        minimumInputLength: 1,
+/*        language: abp.localization.currentCulture.name,*/
+        width: '100%'
+    });
+    //    .val(defaultVehicleId);
+    //if (defaultVehicleId != null) {
+    //    var $option = $('<option selected>Loading...</option>').val(defaultVehicleId);
+    //    $('#VehicleId').append($option);
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: abp.appPath + "api/services/app/Vehicle/GetForEdit?Id=" + defaultVehicleId,
+    //        dataType: 'json'
+    //    }).then(function (data) {
+    //        var $option = $('<option selected>' + data.result.name + '</option>').val(data.result.id);
+    //        $('#VehicleId').append($option);
+    //    });
+    //}
+
 })(jQuery);
 
 

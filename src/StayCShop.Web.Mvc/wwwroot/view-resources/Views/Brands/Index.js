@@ -9,6 +9,7 @@
 
     _$modalEdit = $('#EditModal');
     _$formEdit = _$modal.find('form');
+    var rowCount = 1;
 
     var dataTable = _$table.DataTable({
         paging: true,
@@ -41,11 +42,18 @@
             },
             {
                 targets: 1,
-                data: 'brandName',
+                render: function () {
+                    return rowCount++;
+                },
                 sortable: false,
             },
             {
                 targets: 2,
+                data: 'brandName',
+                sortable: false,
+            },
+            {
+                targets: 3,
                 data: null,
                 sortable: false,
                 autoWidth: false,

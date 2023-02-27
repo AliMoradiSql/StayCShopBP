@@ -5,6 +5,15 @@
     _$modal = $('#EditModal');
     _$form = _$modal.find('form');
 
+
+    $('#textFileEdit').change(function (event) {
+        //$('#imageViewrEdit').attr("src", "");
+        var files = event.target.files;
+        $('#imageViewrEdit').attr("src", window.URL.createObjectURL(files[0]));
+
+    });
+
+
     function save() {
 
         if (!_$form.valid()) {
@@ -17,7 +26,7 @@
             _$modal.modal('hide');
             _$form[0].reset();
             abp.notify.info(l('SavedSuccessfully'));
-            abp.event.trigger('Product.edited', info);
+            abp.event.trigger('Brand.edited', info);
         }).always(function () {
             abp.ui.clearBusy(_$modal);
         });

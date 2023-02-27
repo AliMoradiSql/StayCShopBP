@@ -19,51 +19,63 @@
                 @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNew")))
                 <form name="InformationForm" role="form" class="form-horizontal">
                     <div class="modal-body">
+
                         <div class="row">
-                            <div class="col-sm-3 text-center margin-top-15 margin-bottom-15">
-
-                                <img id="imageViewr" class="border rounded" style="width:100px;height:100px;margin-bottom:30px;background-color:silver;">
+                            <div class="col-md-4">
+                                <div class="col-sm-3 text-center margin-top-15 margin-bottom-15">
+                                    <img id="imageViewr" class="border rounded" style="width: 150px; height: 150px; margin-bottom: 30px; background-color: silver;">
+                                </div>
+                                <div class="custom-file col-md-8 mb-2">
+                                    <input id="textFile" type="file" class="custom-file-input form-control-sm" name="coverimage" value="Upload file" />
+                                    <label class="custom-file-label col-form-label-sm" for="textFile">Choose file</label>
+                                </div>
                             </div>
-
-                            <input id="textFile" type="file" name="coverimage" value="Upload file" />
+                            <div class="col-md-8">
+                                <div class="form-group row required ">
+                                    <label class="col-md-3 col-form-label">@L("Name")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Name" value="@Model.Name">
+                                    </div>
+                                </div>
+                                <div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Color")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Color" value="@Model.Color">
+                                    </div>
+                                </div>
+                                <div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Price")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Price" value="@Model.Price">
+                                    </div>
+                                </div>
+                                <div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Material")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Material" value="@Model.Material">
+                                    </div>
+                                </div>
+                                <div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Size")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Size" value="@Model.Size">
+                                    </div>
+                                </div>
+                                <div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Quantity")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
+                                    </div>
+                                </div>
+                                @*<div class="form-group row required">
+                                    <label class="col-md-3 col-form-label">@L("Brand")</label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="BrandId" class="form-control select2" name="BrandId">
+                                    </div>
+                                </div>*@
+                            </div>
                         </div>
 
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("ProductName")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Name" value="@Model.Name">
-                            </div>
-                        </div>
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("Color")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Color" value="@Model.Color">
-                            </div>
-                        </div>
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("Price")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Price" value="@Model.Price">
-                            </div>
-                        </div>
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("Material")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Material" value="@Model.Material">
-                            </div>
-                        </div>
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("Size")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Size" value="@Model.Size">
-                            </div>
-                        </div>
-                        <div class="form-group row required">
-                            <label class="col-md-3 col-form-label">@L("Quantity")</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
-                            </div>
-                        </div>
                     </div>
                     @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
                 </form>
@@ -81,51 +93,58 @@ else
     <form name="InformationForm" role="form" class="form-horizontal">
         <input type="hidden" name="Id" value="@Model.Id" />
         <div class="modal-body">
-            <div class="row mt-5">
-                <div class="col-sm-3 text-center margin-top-15 margin-bottom-15">
 
-                    <img id="imageViewr" src="@imgSrc" class="border rounded" style="width:100px;height:100px;margin-bottom:30px;background-color:silver;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-sm-3 text-center margin-top-15 margin-bottom-15">
+                        <img id="imageViewrEdit" src="@imgSrc" class="border rounded" style="width: 150px; height: 150px; margin-bottom: 30px; background-color: silver; background-size: cover">
+                    </div>
+                    <div class="custom-file col-md-8 mb-2">
+                        <input id="textFileEdit" type="file" class="custom-file-input form-control-sm" name="coverimage" value="Upload file" />
+                        <label class="custom-file-label col-form-label-sm" for="textFileEdit">Choose file</label>
+                    </div>
                 </div>
-
-                <input id="textFile" type="file" name="coverimage" value="Upload file" />
+                <div class="col-md-8">
+                    <div class="form-group row required ">
+                        <label class="col-md-3 col-form-label">@L("Name")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Name" value="@Model.Name">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Color")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Color" value="@Model.Color">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Price")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Price" value="@Model.Price">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Material")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Material" value="@Model.Material">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Size")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Size" value="@Model.Size">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Quantity")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("ProductName")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Name" value="@Model.Name">
-                </div>
-            </div>
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("Color")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Color" value="@Model.Color">
-                </div>
-            </div>
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("Price")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Price" value="@Model.Price">
-                </div>
-            </div>
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("Material")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Material" value="@Model.Material">
-                </div>
-            </div>
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("Size")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Size" value="@Model.Size">
-                </div>
-            </div>
-            <div class="form-group row required">
-                <label class="col-md-3 col-form-label">@L("Quantity")</label>
-                <div class="col-md-9">
-                    <input type="text" class="form-control" name="Quantity" value="@Model.Quantity">
-                </div>
-            </div>
+
         </div>
         @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
     </form>

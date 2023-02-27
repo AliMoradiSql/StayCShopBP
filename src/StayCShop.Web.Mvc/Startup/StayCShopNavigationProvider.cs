@@ -55,6 +55,14 @@ namespace StayCShop.Web.Startup
                         icon: "fas fa-tshirt",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
                     )
+                 ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Discounts,
+                        L("Discounts"),
+                        url: "Discounts",
+                        icon: "fab fa-shopify",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
+                    )
                 );
         }
 

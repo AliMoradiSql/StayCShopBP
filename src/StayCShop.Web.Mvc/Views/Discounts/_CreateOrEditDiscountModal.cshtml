@@ -1,0 +1,73 @@
+﻿@using StayCShop.Discounts.Dto;
+@using StayCShop.Web.Models.Common.Modals;
+
+@model GetForEditDiscountDto
+@{
+    Layout = null;
+}
+
+
+@if (!Model.Id.HasValue)
+{<div class="modal fade" id="CreateOrEditModal" tabindex="-1" role="dialog" aria-labelledby="CreateModalLabel" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNew")))
+                <form name="InformationForm" role="form" class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="form-group row required">
+                            <label class="col-md-3 col-form-label">@L("DiscountName")</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="DiscountName" value="@Model.DiscountName" required>
+                            </div>
+                        </div>
+                        <div class="form-group row required">
+                            <label class="col-md-3 col-form-label">@L("Percent")</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="Percent" value="@Model.Percent" required>
+                            </div>
+                        </div>
+                        <div class="form-group row required">
+                            <label class="col-md-3 col-form-label">@L("ExpireDate")</label>
+                            <div class="col-md-9">
+                                <input id="datetimepicker" type="text" class="form-control " name="ExpireDate">
+                            </div>
+                        </div>
+                    </div>
+                    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+                </form>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit")))
+    <form name="InformationForm" role="form" class="form-horizontal">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="modal-body">
+            <div class="form-group row required">
+                <label class="col-md-3 col-form-label">@L("DiscountName")</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="DiscountName" value="@Model.DiscountName" required>
+                </div>
+            </div>
+
+            <div class="form-group row required">
+                <label class="col-md-3 col-form-label">@L("Percent")</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="Percent" value="@Model.Percent" required>
+                </div>
+            </div>
+            <div class="form-group row required">
+                <label class="col-md-3 col-form-label">@L("ExpireDate")</label>
+                <div class="col-md-9">
+                    <input id="datetimepicker1" type="text" class="form-control" name="ExpireDate" value="@Model.ExpireDate" required>
+                </div>
+            </div>
+        </div>
+        @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+    </form>
+
+    <script src="~/view-resources/Views/Discounts/_EditDiscountModal.js" asp-append-version="true"></script>
+
+}
