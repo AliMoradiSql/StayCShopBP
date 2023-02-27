@@ -1,0 +1,21 @@
+﻿@model StayCShop.Common.IdTitleDto
+
+    <div class="row">
+        <ul class="nav nav-tabs nav-bold nav-tabs-line col-md-10">
+            <li class="nav-item">
+                <a class="nav-link @(Model.Title == "Detail" ? "active" : "")" href="/products/Detail?id=@Model.Id">Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Model.Title == "ProductCategory" ? "active" : "")" href="/products/Detail?id=@Model.Id">@L("Categories")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Model.Title == "ProductDiscount" ? "active" : "")" href="/products/Detail?id=@Model.Id">@L("Discounts")</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Model.Title == "Images" ? "active" : "")" href="/products/Detail?id=@Model.Id">@L("Images")</a>
+            </li>
+        </ul>
+        <div class="col-md-2">
+            <a href="/products" class="btn btn-dark float-end">Back</a>
+        </div>
+    </div>

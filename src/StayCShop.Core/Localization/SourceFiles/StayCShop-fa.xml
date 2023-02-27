@@ -133,5 +133,7 @@
 		<text name="Discounts">تخفیفات</text>
 		<text name="Percent">درصد</text>
 		<text name="ExpireDate">تاریخ پایان</text>
+		<text name="Categories">دسته بندی ها</text>
+		<text name="CategoryName">نام دسته بندی</text>
 	</texts>
 </localizationDictionary>

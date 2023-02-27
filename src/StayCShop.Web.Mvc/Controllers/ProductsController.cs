@@ -4,6 +4,7 @@ using StayCShop.Products.Dto;
 using StayCShop.Products;
 using StayCShop.Controllers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace StayCShop.Web.Controllers
 {
@@ -24,8 +25,15 @@ namespace StayCShop.Web.Controllers
 
         public async Task<ActionResult> CreateOrEditProductModal(int? Id)
         {
-            var model = await _productAppService.GetForEdit(new NullableIdDto(Id));
-            return PartialView("_CreateOrEditProductModal", model);
+           
+            return PartialView("_CreateOrEditProductModal");
+        }
+
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var model = await _productAppService.GetForEdit(new NullableIdDto(id));
+            return View(model);
         }
     }
 }

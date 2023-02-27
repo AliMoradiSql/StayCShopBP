@@ -1,7 +1,7 @@
 ﻿(function ($) {
 
     l = abp.localization.getSource('StayCShop');
-    var _mService = abp.services.app.brand;
+    var _mService = abp.services.app.category;
     var _$table = $('#DataTable');
 
     _$modal = $('#CreateOrEditModal');
@@ -52,9 +52,10 @@
             },
             {
                 targets: 2,
-                data: 'brandName',
+                data: 'categoryName',
                 sortable: false,
             },
+
             {
                 targets: 3,
                 data: null,
@@ -66,7 +67,7 @@
                         `   <button type="button" class="btn btn-sm bg-primary edit-info" data-info-id="${row.id}" data-toggle="modal" data-target="#EditModal">`,
                         `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
                         '   </button>',
-                        `   <button type="button" class="btn btn-sm bg-danger delete-info" data-info-id="${row.id}" data-info-name="${row.brandName}">`,
+                        `   <button type="button" class="btn btn-sm bg-danger delete-info" data-info-id="${row.id}" data-info-name="${row.categoryName}">`,
                         `       <i class="fas fa-trash"></i> ${l('Delete')}`,
                         '   </button>'
                     ].join('');
@@ -74,15 +75,6 @@
             }
         ]
     });
-
-    //_$form.validate({
-    //    rules: {
-    //        Password: "required",
-    //        ConfirmPassword: {
-    //            equalTo: "#Password"
-    //        }
-    //    }
-    //});
 
     function Save(_$formObj, _$modalObj) {
         _$formObj.find('.save-button').on('click', (e) => {
@@ -138,14 +130,12 @@
 
         e.preventDefault();
         abp.ajax({
-            url: abp.appPath + 'Brands/CreateOrEditBrandModal?Id=' + objId,
+            url: abp.appPath + 'Categories/CreateOrEditCategoryModal?Id=' + objId,
             type: 'Get',
             dataType: 'html',
             success: function (content) {
                 console.log(content);
                 $('#EditModal div.modal-content').html(content);
-                //$('.modal fade').tab('show')
-                //$('.nav-tabs a[href="#info-details"]').tab('show');
             },
             error: function (e) {
                 console.log(e);
@@ -154,19 +144,12 @@
     });
 
     $(document).on('click', 'a[data-target="#CreateOrEditModal"]', (e) => {
-        //$('.nav-tabs a[href="#info-details"]').tab('show')
         $('.modal fade').tab('show')
     });
 
-    abp.event.on('Brand.edited', (data) => {
+    abp.event.on('Category.edited', (data) => {
         getData();
     });
-
-    //_$modalEdit.on('shown.bs.modal', () => {
-    //    _$modalEdit.find('input:not([type=hidden]):first').focus();
-    //}).on('hidden.bs.modal', () => {
-    //    _$form.clearForm();
-    //});
 
     _$modal.on('shown.bs.modal', () => {
         _$modal.find('input:not([type=hidden]):first').focus();

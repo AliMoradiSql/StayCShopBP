@@ -77,12 +77,6 @@ namespace StayCShop.Products
 
         public byte[] ConvertIamgeToByte(IFormFile file)
         {
-            //byte[] fileBytes;
-            //using (var stream = file.OpenReadStream())
-            //{
-            //    fileBytes = stream.GetAllBytes();
-            //    return fileBytes;
-            //}
             using (var ms = new MemoryStream())
             {
                 file.CopyTo(ms);
@@ -90,21 +84,6 @@ namespace StayCShop.Products
                 return res;
             }
 
-
-            //using (var stream = file.OpenReadStream())
-            //{
-            //    using (System.Drawing.Image img = System.Drawing.Image.FromStream(stream))
-            //    {
-            //        //var id = Guid.NewGuid();
-            //        //fileName = id + extension;
-            //        if (img.Width > 100)
-            //        {
-            //            using System.Drawing.Image thumbnail = img.GetThumbnailImage(100, 100, null, IntPtr.Zero);
-            //            using MemoryStream ms = new();
-            //            thumbnail.Save(ms, ImageFormat.Jpeg);
-            //        }
-            //    }
-            //}
         }
 
         private byte[] GetImage(string base64)

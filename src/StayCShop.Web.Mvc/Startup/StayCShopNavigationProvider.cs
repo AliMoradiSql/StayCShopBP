@@ -63,6 +63,14 @@ namespace StayCShop.Web.Startup
                         icon: "fab fa-shopify",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
                     )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Categories,
+                        L("Categories"),
+                        url: "Categories",
+                        icon: "fas fa-th",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Users)
+                    )
                 );
         }
 

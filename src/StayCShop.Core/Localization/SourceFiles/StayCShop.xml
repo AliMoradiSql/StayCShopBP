@@ -133,5 +133,7 @@
 		<text name="Discounts">Discounts</text>
 		<text name="Percent">Percent</text>
 		<text name="ExpireDate">Expire Date</text>
+		<text name="Categories">Categories</text>
+		<text name="CategoryName">Category Name</text>
 	</texts>
 </localizationDictionary>

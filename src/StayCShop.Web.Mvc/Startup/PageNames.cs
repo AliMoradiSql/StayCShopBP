@@ -10,5 +10,6 @@
         public const string Brands = "Brands"; 
         public const string Products = "Products"; 
         public const string Discounts = "Discounts"; 
+        public const string Categories = "Categories"; 
     }
 }

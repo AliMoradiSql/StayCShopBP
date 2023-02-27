@@ -26,7 +26,10 @@
             {
                 name: 'refresh',
                 text: '<i class="fas fa-redo-alt"></i>',
-                action: () => dataTable.draw(false)
+                action: function () {
+                    dataTable.draw(false);
+                    rowCount = 1;
+                }
             }
         ],
         responsive: {
@@ -178,16 +181,17 @@
         var objId = $(this).attr("data-info-id");
 
         e.preventDefault();
-        abp.ajax({
-            url: abp.appPath + 'Products/CreateOrEditProductModal?Id=' + objId,
-            type: 'Get',
-            dataType: 'html',
-            success: function (content) {
-                $('#EditModal div.modal-content').html(content);
-            },
-            error: function (e) {
-            }
-        });
+        location.href = '/Products/Detail?id=' + objId;
+        //abp.ajax({
+        //    url: abp.appPath + 'Products/CreateOrEditProductModal?Id=' + objId,
+        //    type: 'Get',
+        //    dataType: 'html',
+        //    success: function (content) {
+        //        $('#EditModal div.modal-content').html(content);
+        //    },
+        //    error: function (e) {
+        //    }
+        //});
     });
 
     $(document).on('click', 'a[data-target="#CreateOrEditModal"]', (e) => {
@@ -220,6 +224,7 @@
 
     function getData() {
         dataTable.ajax.reload();
+        rowCount = 1;
     }
 
     $('#BrandId').select2({

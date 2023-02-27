@@ -26,7 +26,10 @@
             {
                 name: 'refresh',
                 text: '<i class="fas fa-redo-alt"></i>',
-                action: () => dataTable.draw(false)
+                action: function () {
+                    dataTable.draw(false);
+                    rowCount = 1;
+                }
             }
         ],
         responsive: {
@@ -209,6 +212,7 @@
 
     function getData() {
         dataTable.ajax.reload();
+        rowCount = 1;
     }
 })(jQuery);
 
