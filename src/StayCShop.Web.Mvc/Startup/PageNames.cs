@@ -9,6 +9,7 @@
         public const string Roles = "Roles"; 
         public const string Brands = "Brands"; 
         public const string Products = "Products"; 
+        public const string Products_Iamges = "Products_Iamges"; 
         public const string Discounts = "Discounts"; 
         public const string Categories = "Categories"; 
     }

@@ -4,6 +4,7 @@ using StayCShop.CartDetails.Dto;
 using StayCShop.Categories.Dto;
 using StayCShop.Discounts.Dto;
 using StayCShop.Entities;
+using StayCShop.Images.Dto;
 using StayCShop.ProductCategories.Dto;
 using StayCShop.ProductDiscounts.Dto;
 using StayCShop.Products.Dto;
@@ -56,6 +57,11 @@ namespace StayCShop
             configuration.CreateMap<Discount, DiscountListDto>();
             configuration.CreateMap<Discount, GetForEditDiscountDto>();
             configuration.CreateMap<CreateOrEditDiscountDto, Discount>();
+
+            //Image
+            configuration.CreateMap<Image, ImageListDto>();
+            configuration.CreateMap<Image, GetForEditImageDto>();
+            configuration.CreateMap<CreateOrEditImageDto, Image>();
         }
     }
 }
