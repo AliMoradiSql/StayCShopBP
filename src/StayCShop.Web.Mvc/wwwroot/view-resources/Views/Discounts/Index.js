@@ -92,17 +92,7 @@
         ]
     });
 
-    //_$form.validate({
-    //    rules: {
-    //        Password: "required",
-    //        ConfirmPassword: {
-    //            equalTo: "#Password"
-    //        }
-    //    }
-    //});
-    //$("#datetimepicker1").datetimepicker({
-    //    //dateFormat: "dd-mm-yy",
-    //});
+
     $('#datetimepicker').datetimepicker({
         theme: 'dark',
         startDate: new Date(),

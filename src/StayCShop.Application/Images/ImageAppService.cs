@@ -50,7 +50,10 @@ namespace StayCShop.Images
         {
             if (input.Id.HasValue)
             {
-                await _imageRepository.UpdateAsync(ObjectMapper.Map<Image>(input));
+                var data = await _imageRepository.GetAsync(input.Id.Value);
+                if (input.image == null)
+                    input.image = data.image;
+                ObjectMapper.Map(input, data);
             }
 
             else

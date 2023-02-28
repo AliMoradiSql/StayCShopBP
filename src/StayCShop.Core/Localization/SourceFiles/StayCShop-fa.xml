@@ -135,5 +135,16 @@
 		<text name="ExpireDate">تاریخ پایان</text>
 		<text name="Categories">دسته بندی ها</text>
 		<text name="CategoryName">نام دسته بندی</text>
+
+		<text name="Brand">برند</text>
+		<text name="Description">توضیحات</text>
+		<text name="Images">عکس ها</text>
+		<text name="Image">عکس</text>
+		<text name="Discount">تخفیف</text>
+		<text name="Category">دسته بندی</text>
+		<text name="Information">اطلاعات</text>
+		<text name="SelectYourBrandName">برند خود را انتخاب بفرمایید</text>
+		<text name="SelectYourDiscountName">تخفیف خود را انتخاب بفرمایید</text>
+		<text name="SelectYourCategoryName">دسته بندی خود را انتخاب بفرمایید</text>
 	</texts>
 </localizationDictionary>

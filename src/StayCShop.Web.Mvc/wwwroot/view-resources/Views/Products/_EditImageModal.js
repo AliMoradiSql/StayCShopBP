@@ -26,26 +26,37 @@ console.log("test");
 
         var info = _$form.serializeFormToObject();
 
-
-        abp.ui.setBusy(_$modal);
-        abp.ajax({
-            url: '/api/services/app/image/ConvertIamgeToByte',
-            type: 'post',
-            processData: false,
-            contentType: false,
-            data: fd
-        }).done(function (data) {
-            info.Image = data;
+        if (files[0] != null) {
+            abp.ui.setBusy(_$modal);
+            abp.ajax({
+                url: '/api/services/app/image/ConvertIamgeToByte',
+                type: 'post',
+                processData: false,
+                contentType: false,
+                data: fd
+            }).done(function (data) {
+                info.Image = data;
+                _mService.createOrUpdate(info).done(function () {
+                    _$modal.modal('hide');
+                    _$form[0].reset();
+                    abp.notify.info(l('SavedSuccessfully'));
+                    abp.event.trigger('Image.edited', info);
+                });
+            }).always(function () {
+                abp.ui.clearBusy(_$modal);
+            });
+        }
+        else {
+            abp.ui.setBusy(_$modal);
             _mService.createOrUpdate(info).done(function () {
                 _$modal.modal('hide');
                 _$form[0].reset();
                 abp.notify.info(l('SavedSuccessfully'));
                 abp.event.trigger('Image.edited', info);
+            }).always(function () {
+                abp.ui.clearBusy(_$modal);
             });
-        }).always(function () {
-            abp.ui.clearBusy(_$modal);
-        });
-
+        }
     }
 
     _$form.closest('div.modal-content').find(".save-button").click(function (e) {

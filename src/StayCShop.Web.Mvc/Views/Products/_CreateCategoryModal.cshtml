@@ -1,0 +1,30 @@
+﻿@using StayCShop.Web.Models.Common.Modals;
+@{
+
+    Layout = null;
+}
+
+<div class="modal fade" id="CreateOrEditModal" tabindex="-1" role="dialog" aria-labelledby="CreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNew")))
+            <form name="InformationForm" role="form" class="form-horizontal">
+                <input type="hidden" id="ProductId" name="ProductId" value="@ViewBag.ProductId" />
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class=" form-group row">
+                                <label class="form-label col-md-3">@L("Category")</label>
+                                <div class="col-md-9">
+                                    <select id="CategoryId" class="select2-container" name="CategoryId" style="height:20px">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+            </form>
+        </div>
+    </div>
+</div>

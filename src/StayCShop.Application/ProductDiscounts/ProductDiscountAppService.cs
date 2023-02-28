@@ -27,8 +27,8 @@ namespace StayCShop.ProductDiscounts
         public async Task<PagedResultDto<ProductDiscountListDto>> GetAll(GetAllProductDiscountInput input)
         {
 
-            var query = _productDiscountRepository.GetAll()
-                .WhereIf(!string.IsNullOrEmpty(input.Filter), x => x.Product.Name.Contains(input.Filter));
+            var query = _productDiscountRepository.GetAllIncluding(p => p.Product, d => d.Discount)
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), x => x.Discount.DiscountName.Contains(input.Filter));
 
 
             var count = await query.CountAsync();

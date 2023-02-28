@@ -51,11 +51,21 @@ namespace StayCShop.Products
         {
             if (input.Id.HasValue)
             {
-                await _productRepository.UpdateAsync(ObjectMapper.Map<Product>(input));
+                var data = await _productRepository.GetAsync(input.Id.Value);
+                if(input.CoverImage == null)
+                    input.CoverImage = data.CoverImage;
+                ObjectMapper.Map(input, data);
             }
 
             else
                 await _productRepository.InsertAsync(ObjectMapper.Map<Product>(input));
+
+            Product product = new Product() 
+            {
+                Id = input.Id.Value,
+                CoverImage = input.CoverImage,
+                Color=input.Color,
+            };
         }
 
         public async Task Delete(EntityDto input)
@@ -75,26 +85,5 @@ namespace StayCShop.Products
             return new GetForEditProductDto();
         }
 
-        public byte[] ConvertIamgeToByte(IFormFile file)
-        {
-            using (var ms = new MemoryStream())
-            {
-                file.CopyTo(ms);
-                var res = ms.ToArray();
-                return res;
-            }
-
-        }
-
-        private byte[] GetImage(string base64)
-        {
-            byte[] imageBytes = null;
-
-            if (!string.IsNullOrEmpty(base64))
-            {
-                imageBytes = Convert.FromBase64String(base64);
-            }
-            return imageBytes;
-        }
     }
 }

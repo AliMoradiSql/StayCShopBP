@@ -131,7 +131,7 @@
 
             abp.ui.setBusy(_$modalObj);
             abp.ajax({
-                url: '/api/services/app/product/ConvertIamgeToByte',
+                url: '/api/services/app/image/ConvertIamgeToByte',
                 type: 'post',
                 processData: false,
                 contentType: false,

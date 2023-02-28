@@ -1,0 +1,34 @@
+﻿@using StayCShop.ProductDiscounts.Dto;
+@using StayCShop.Web.Models.Common.Modals;
+
+
+@model GetForEditProductDiscountDto
+
+@{
+    Layout = null;
+}
+
+
+<div class="content d-flex flex-column flex-column-fluid" style="margin-top:20px" id="kt_content">
+    <form name="InformationForm" role="form" class="form-horizontal">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" id="ProductId" name="ProductId" value="@ViewBag.ProductId" />
+        <input type="hidden" id="DefaultDiscountId" value="@Model.DiscountId" />
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class=" form-group row">
+                        <label class="form-label col-md-3">@L("Discount")</label>
+                        <div class="col-md-9">
+                            <select id="EditDiscountId" class="select2-container" name="DiscountId" style="height:20px">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+    </form>
+</div>
+
+<script src="~/view-resources/Views/Products/_EditDiscountModal.js" asp-append-version="true"></script>

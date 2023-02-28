@@ -37,7 +37,7 @@
                                 <img id="imageViewrEdit" src="@imgSrc" class="border rounded" style="width: 150px; height: 150px; margin-bottom: 30px; background-color: silver; background-size: cover">
                             </div>
                             <div class="custom-file col-md-8 mb-2">
-                                <input id="textFileEdit" type="file" class="custom-file-input form-control-sm" name="coverimage" value="Upload file" />
+                                <input id="textFileEdit" type="file" class="custom-file-input form-control-sm" name="coverimage" value="@Model.CoverImage" />
                                 <label class="custom-file-label col-form-label-sm" for="textFileEdit">Choose file</label>
                             </div>
                         </div>
@@ -89,6 +89,9 @@
                     </div>
                 </div>
             </form>
+            <div class="modal-footer justify-content-end">
+                <button type="submit" class="btn btn-primary save-button">@L("Save")</button>
+            </div>
         </div>
     </div>
 </div>

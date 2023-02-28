@@ -2,17 +2,15 @@
     l = abp.localization.getSource('StayCShop');
     var _mService = abp.services.app.product;
 
-    _$modal = $('#EditModal');
+    _$modal = $('#kt_content');
     _$form = _$modal.find('form');
     var defaultBrandId = $('#DefaultBrandId').val();
 
     $('#textFileEdit').change(function (event) {
-        //$('#imageViewrEdit').attr("src", "");
         var files = event.target.files;
         $('#imageViewrEdit').attr("src", window.URL.createObjectURL(files[0]));
 
     });
-
 
     function save() {
 
@@ -26,30 +24,41 @@
             fd.append('file', files[0]);
 
         var info = _$form.serializeFormToObject();
-
-
-        abp.ui.setBusy(_$modal);
-        abp.ajax({
-            url: '/api/services/app/product/ConvertIamgeToByte',
-            type: 'post',
-            processData: false,
-            contentType: false,
-            data: fd
-        }).done(function (data) {
-            info.CoverImage = data;
+        if (files[0] != null) {
+            abp.ui.setBusy();
+            abp.ajax({
+                url: '/api/services/app/image/ConvertIamgeToByte',
+                type: 'post',
+                processData: false,
+                contentType: false,
+                data: fd
+            }).done(function (data) {
+                info.CoverImage = data;
+                _mService.createOrUpdate(info).done(function () {
+                    _$form[0].reset();
+                    abp.notify.info(l('SavedSuccessfully'));
+                    abp.event.trigger('Product.edited', info);
+                });
+            }).always(function () {
+                abp.ui.clearBusy();
+                check = true;
+            });
+        }
+        else {
+            abp.ui.setBusy();
             _mService.createOrUpdate(info).done(function () {
-                _$modal.modal('hide');
                 _$form[0].reset();
                 abp.notify.info(l('SavedSuccessfully'));
-                abp.event.trigger('Brand.edited', info);
+                abp.event.trigger('Product.edited', info);
+            }).always(function () {
+                abp.ui.clearBusy();
             });
-        }).always(function () {
-            abp.ui.clearBusy(_$modal);
-        });
+
+        }
 
     }
 
-    _$form.closest('div.modal-content').find(".save-button").click(function (e) {
+    $(".save-button").click(function (e) {
         e.preventDefault();
         save();
     });
@@ -61,14 +70,8 @@
         }
     });
 
-    _$modal.on('shown.bs.modal', function () {
-        _$form.find('input[type=text]:first').focus();
-    });
-
     $('#EditBrandId').select2({
         selectionCssClass: 'form-select',
-        allowClear: true,
-        dropdownParent: _$modal,
         ajax: {
             url: abp.appPath + "api/services/app/brand/GetAll",
             dataType: 'json',

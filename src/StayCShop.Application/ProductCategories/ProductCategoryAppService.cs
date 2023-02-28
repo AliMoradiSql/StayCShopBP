@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Abp.Linq.Extensions;
+using System.Runtime.CompilerServices;
 
 namespace StayCShop.ProductCategories
 {
@@ -26,9 +27,8 @@ namespace StayCShop.ProductCategories
         public async Task<PagedResultDto<ProductCategoryListDto>> GetAll(GetAllProductCategoryInput input)
         {
 
-            var query = _productCategoryRepository.GetAll()
-                .WhereIf(!string.IsNullOrEmpty(input.Filter), x => x.Product.Name.Contains(input.Filter) 
-                || x.Category.CategoryName.Contains(input.Filter));
+            var query = _productCategoryRepository.GetAllIncluding(x => x.Product, Ca => Ca.Category)
+                .WhereIf(!string.IsNullOrEmpty(input.Filter), x => x.Category.CategoryName.Contains(input.Filter));
 
 
             var count = await query.CountAsync();

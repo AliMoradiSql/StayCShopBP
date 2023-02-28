@@ -54,11 +54,6 @@
             },
             {
                 targets: 2,
-                data: 'title',
-                sortable: false,
-            },
-            {
-                targets: 3,
                 data: 'image',
                 sortable: false,
                 render: function (img) {
@@ -66,7 +61,7 @@
                     image.src = 'data:image/png;base64,' + img;
                     if (img) {
                         var $container = $('<span/>');
-                        var $link = $('<a/>').attr('href', image.src).attr('target','_blank');
+                        var $link = $('<a/>').attr('href', image.src).attr('target', '_blank');
                         var $img = $('<img/>').addClass('img-thumbnail').attr('src', image.src).attr('width', 70).attr('height', 70);
 
                         $link.append($img);
@@ -77,6 +72,12 @@
 
                 }
             },
+            {
+                targets: 3,
+                data: 'title',
+                sortable: false,
+            },
+
             {
                 targets: 4,
                 data: 'description',
