@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using StayCShop.Authorization.Users;
 using StayCShop.Brands.Dto;
 using StayCShop.CartDetails.Dto;
 using StayCShop.Categories.Dto;
+using StayCShop.ClientLogin.Dto;
 using StayCShop.Discounts.Dto;
 using StayCShop.Entities;
 using StayCShop.Images.Dto;
@@ -62,6 +64,9 @@ namespace StayCShop
             configuration.CreateMap<Image, ImageListDto>();
             configuration.CreateMap<Image, GetForEditImageDto>();
             configuration.CreateMap<CreateOrEditImageDto, Image>();
+
+            configuration.CreateMap<User, CreateOrEditAccountDto>();
+            configuration.CreateMap<User, ClientLoginDto>();
         }
     }
 }
